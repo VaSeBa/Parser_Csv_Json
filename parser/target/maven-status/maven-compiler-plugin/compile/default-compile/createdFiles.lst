@@ -1,0 +1,13 @@
+vaseba\converter\Converter$1.class
+vaseba\parser\OrderParserJson.class
+vaseba\model\OrderIn.class
+vaseba\parser\OrderParserCsv.class
+vaseba\converter\Converter.class
+vaseba\model\OrderOut.class
+vaseba\exception\ParserException.class
+vaseba\parser\ParserFactory$1.class
+vaseba\parser\OrderParserJson$1.class
+vaseba\parser\ParserFactory$SingletonHolder.class
+vaseba\parser\OrderParser.class
+vaseba\parser\ParserFactory.class
+vaseba\converter\Converter$SingletonHolder.class

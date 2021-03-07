@@ -21,6 +21,7 @@
         <apache.commons.lang3>3.5</apache.commons.lang3>
         <junit.version>4.12</junit.version>
         <json.version>20180130</json.version>
+        <poi.version>4.1.2</poi.version>
         <fasterxml.core.jackson-databind>2.9.0</fasterxml.core.jackson-databind>
     </properties>
 
@@ -51,6 +52,16 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

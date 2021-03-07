@@ -45,6 +45,7 @@ public class OrderParserJson extends OrderParser {
 		} catch (JSONException je) {
 			throw new ParserException(JSON_IS_INVALID);
 		}
+
 		/** https://docs.spring.io/spring-boot/docs/2.3.0.M1/api/org/springframework/boot/configurationprocessor/json/JSONTokener.html*/
 		if (json instanceof JSONObject) { //json with single object-order
 			OrderIn source;

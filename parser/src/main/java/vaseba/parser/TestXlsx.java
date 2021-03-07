@@ -11,10 +11,10 @@ import java.io.*;
 import java.util.Iterator;
 import java.util.List;
 
-public class Test extends OrderParser{
+public class TestXlsx extends OrderParser{
     private static XSSFRow row;
 
-    public Test(String filename) {
+    public TestXlsx(String filename) {
         super(filename);
     }
 

@@ -53,74 +53,12 @@ public class ParserJsonTest {
 	}
 
 	@Test
-	public void singleObjectTest() {
-		File file = new File(classLoader.getResource("object.json").getFile());
-		OrderParser parser = factory.getParserByFileName(file.getAbsolutePath());
-		List<OrderOut> orders = parser.execute();
-		assertEquals(1, orders.size());
-		OrderOut order = orders.get(0);
-		assertNull(order.getLine());
-		assertEquals(Long.valueOf(1), order.getId());
-		assertEquals(new BigDecimal(100), order.getAmount());
-		assertEquals("USD", order.getCurrency());
-		assertEquals("оплата заказа", order.getComment());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-		assertEquals(Converter.RESULT_OK, order.getResult());
-	}
-
-	@Test
 	public void executeSuccessTest() {
-		File file = new File(classLoader.getResource("array.json").getFile());
+		File file = new File(classLoader.getResource("test.json").getFile());
 		OrderParser parser = factory.getParserByFileName(file.getAbsolutePath());
 		List<OrderOut> orders = parser.execute();
 		orders.stream().map(converter::convertOutToString).forEach(System.out::println);
-		assertEquals(6, orders.size());
 
-		OrderOut order = orders.stream().filter(o -> o.getAmount().equals(new BigDecimal(150))).findFirst().get();
-		assertNull(order.getId());
-		assertEquals("KZH", order.getCurrency());
-		assertEquals("оплата заказа11", order.getComment());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-		assertEquals(Converter.ORDER_ID + Converter.NOT_SPECIFIED, order.getResult());
-
-		order = orders.stream().filter(o -> o.getAmount() == null).findFirst().get();
-		assertEquals(Long.valueOf(12), order.getId());
-		assertEquals("BLR", order.getCurrency());
-		assertEquals("оплата заказа12", order.getComment());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-		assertEquals(Converter.ORDER_AMOUNT + Converter.NOT_SPECIFIED, order.getResult());
-
-		order = orders.stream().filter(o -> o.getResult().equals(Converter.RESULT_OK)).findFirst().get();
-		assertEquals(Long.valueOf(13), order.getId());
-		assertEquals(new BigDecimal(350), order.getAmount());
-		assertEquals("UGG", order.getCurrency());
-		assertEquals("оплата заказа13", order.getComment());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-
-		order = orders.stream().filter(o -> o.getCurrency().equals("GBP")).findFirst().get();
-		assertEquals(Long.valueOf(14), order.getId());
-		assertNull(order.getAmount());
-		assertNull(order.getComment());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-		assertEquals(Converter.ORDER_AMOUNT + Converter.IS_INVALID + "q450"
-				+ ", " + Converter.ORDER_COMMENT + Converter.NOT_SPECIFIED, order.getResult());
-
-		order = orders.stream().filter(o -> "800".equals(o.getComment())).findFirst().get();
-		assertNull(order.getId());
-		assertNull(order.getCurrency());
-		assertEquals(new BigDecimal(450), order.getAmount());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-		assertEquals(Converter.ORDER_ID + Converter.IS_INVALID + "15w"
-				+ ", " + Converter.ORDER_CURRENCY + Converter.NOT_SPECIFIED, order.getResult());
-
-		order = orders.stream().filter(o -> (o.getAmount() == null && o.getId() == null)).findFirst().get();
-		assertNull(order.getCurrency());
-		assertNull(order.getComment());
-		assertEquals(file.getAbsolutePath(), order.getFilename());
-		assertEquals(Converter.ORDER_ID + Converter.NOT_SPECIFIED
-				+ ", " + Converter.ORDER_AMOUNT + Converter.NOT_SPECIFIED
-				+ ", " + Converter.ORDER_CURRENCY + Converter.NOT_SPECIFIED
-				+ ", " + Converter.ORDER_COMMENT + Converter.NOT_SPECIFIED, order.getResult());
 	}
 
 }

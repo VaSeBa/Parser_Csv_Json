@@ -20,17 +20,14 @@ public abstract class OrderParser {
 		this.filename = filename;
 	}
 
-	/** Выполняет парсинг-процесс */
 	public List<OrderOut> execute() {
 		try (BufferedReader input = Files.newBufferedReader(Paths.get(filename))) {
-			/** возвращает список ордера */
 			return parse(input);
 		} catch (IOException e) {
 			throw new ParserException(FILE_NOT_FOUND);
 		}
 	}
 
-	/** Разбирает ввод в список ордера*/
 	protected abstract List<OrderOut> parse(BufferedReader input);
 
 }

@@ -2,4 +2,3 @@ vaseba\ConverterTest.class
 vaseba\ParserJsonTest.class
 vaseba\FactoryTest.class
 vaseba\ParserCsvTest.class
-vaseba\ParserXlsxTest.class

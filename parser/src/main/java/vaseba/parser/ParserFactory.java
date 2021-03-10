@@ -22,7 +22,6 @@ public class ParserFactory {
 
 	private Properties parsers;
 
-	/** в конструкторе пытаемся считать формат файла, с учетом того что файлов может быть несколько - создаем поток */
 	private ParserFactory() {
 		try(InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(PROPERTIES_FILENAME)) {
 			parsers = new Properties();
@@ -32,7 +31,6 @@ public class ParserFactory {
 		}
 	}
 
-	/** создаем экземпляр объекта фабрики */
 	public static ParserFactory getInstance() {
 		return SingletonHolder.INSTANCE;
 	}

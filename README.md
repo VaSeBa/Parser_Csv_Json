@@ -11,7 +11,7 @@
 
 3. В консоле запускаем файл ![image](https://user-images.githubusercontent.com/67800458/110324000-754c9d80-8026-11eb-89e2-0c43e98851af.png)
 
-4. Добавляем файлы для парсинга, жмем Enter и надеемся что автор ни где не накосячил 0_о (parserO\parser\src\test\resources - есть файлы для теста)
+4. Добавляем файлы для парсинга, жмем Enter (parserO\parser\src\test\resources - есть файлы для теста)
 
 ![image](https://user-images.githubusercontent.com/67800458/110324434-fc017a80-8026-11eb-8219-b72d623e780d.png)
 
